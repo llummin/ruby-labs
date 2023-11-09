@@ -25,3 +25,419 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 14ms (Views: 7.5ms | ActiveRecord: 0.0ms | Allocations: 4269)
 
 
+Started GET "/" for 127.0.0.1 at 2023-11-10 00:35:16 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/maximpc/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/maximpc/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.3ms | Allocations: 373)
+Completed 200 OK in 17ms (Views: 5.5ms | ActiveRecord: 0.0ms | Allocations: 4269)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-10 00:35:20 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1169)
+  Rendered layout layouts/application.html.erb (Duration: 546.3ms | Allocations: 93725)
+Completed 200 OK in 592ms (Views: 548.4ms | ActiveRecord: 0.1ms | Allocations: 103663)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2023-11-10 00:35:26 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `set_user'
+Completed 404 Not Found in 8ms (ActiveRecord: 0.7ms | Allocations: 3950)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=1):
+  
+app/controllers/users_controller.rb:63:in `set_user'
+Started GET "/user/1" for 127.0.0.1 at 2023-11-10 00:35:31 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/user/1"):
+  
+Started GET "/users" for 127.0.0.1 at 2023-11-10 00:35:41 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 610)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 2549)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.1ms | Allocations: 2816)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2023-11-10 00:36:03 +0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 6.9ms | Allocations: 2154)
+  Rendered users/new.html.erb within layouts/application (Duration: 11.5ms | Allocations: 2437)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 4359)
+Completed 200 OK in 60ms (Views: 17.0ms | ActiveRecord: 0.0ms | Allocations: 16492)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-11-10 00:37:09 +0300
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"Michael Harti", "email"=>"michael@example.com"}, "commit"=>"Create User"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:27:in `block in create'
+  [1m[36mUser Create (2.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "Michael Harti"], ["email", "michael@example.com"], ["created_at", "2023-11-09 21:37:09.798577"], ["updated_at", "2023-11-09 21:37:09.798577"]]
+  ↳ app/controllers/users_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/users/1
+Completed 302 Found in 10ms (ActiveRecord: 3.3ms | Allocations: 3330)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2023-11-10 00:37:09 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.7ms | Allocations: 183)
+  Rendered users/show.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1192)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 3110)
+Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 0.1ms | Allocations: 3821)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2023-11-10 00:37:22 +0300
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 1.5ms | Allocations: 797)
+  Rendered users/edit.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1053)
+  Rendered layout layouts/application.html.erb (Duration: 17.0ms | Allocations: 2984)
+Completed 200 OK in 20ms (Views: 17.8ms | ActiveRecord: 0.1ms | Allocations: 3647)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2023-11-10 00:37:32 +0300
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"Michael Harti", "email"=>"michael@example.org"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `set_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:40:in `block in update'
+  [1m[36mUser Update (1.9ms)[0m  [1m[33mUPDATE "users" SET "email" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["email", "michael@example.org"], ["updated_at", "2023-11-09 21:37:32.071886"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:40:in `block in update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:40:in `block in update'
+Redirected to http://127.0.0.1:3000/users/1
+Completed 302 Found in 12ms (ActiveRecord: 2.2ms | Allocations: 2525)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2023-11-10 00:37:32 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered users/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 468)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 2398)
+Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 0.1ms | Allocations: 2998)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-10 00:37:41 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered users/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 728)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 2651)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.1ms | Allocations: 2909)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2023-11-10 00:37:42 +0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 1.8ms | Allocations: 714)
+  Rendered users/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 794)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 2716)
+Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.0ms | Allocations: 2976)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-11-10 00:37:54 +0300
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"Foo Bar", "email"=>"foo@bar.com"}, "commit"=>"Create User"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:27:in `block in create'
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "Foo Bar"], ["email", "foo@bar.com"], ["created_at", "2023-11-09 21:37:54.562606"], ["updated_at", "2023-11-09 21:37:54.562606"]]
+  ↳ app/controllers/users_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/users/2
+Completed 302 Found in 9ms (ActiveRecord: 1.1ms | Allocations: 1896)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2023-11-10 00:37:54 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered users/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 497)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 2415)
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.1ms | Allocations: 3015)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-10 00:37:56 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 16)
+  Rendered users/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 851)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 2774)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.1ms | Allocations: 3032)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2023-11-10 00:38:29 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered users/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 438)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 2356)
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.1ms | Allocations: 2956)
+
+
+Started DELETE "/users/2" for 127.0.0.1 at 2023-11-10 00:38:31 +0300
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `set_user'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:52:in `destroy'
+  [1m[36mUser Destroy (12.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/users_controller.rb:52:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:52:in `destroy'
+Redirected to http://127.0.0.1:3000/users
+Completed 302 Found in 17ms (ActiveRecord: 12.7ms | Allocations: 1988)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-10 00:38:31 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered users/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 756)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 2679)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.1ms | Allocations: 2938)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-10 00:42:09 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 1.0ms | Allocations: 219)
+  Rendered users/index.html.erb within layouts/application (Duration: 23.1ms | Allocations: 11857)
+  Rendered layout layouts/application.html.erb (Duration: 191.8ms | Allocations: 44413)
+Completed 200 OK in 210ms (Views: 194.6ms | ActiveRecord: 0.4ms | Allocations: 54314)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMicroposts (20231109214220)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "microposts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "user_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231109214220') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-11-10 00:43:11 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 3.2ms | Allocations: 219)
+  Rendered users/index.html.erb within layouts/application (Duration: 40.8ms | Allocations: 11883)
+  Rendered layout layouts/application.html.erb (Duration: 186.7ms | Allocations: 44434)
+Completed 200 OK in 208ms (Views: 189.5ms | ActiveRecord: 1.0ms | Allocations: 54336)
+
+
+Started GET "/microposts" for 127.0.0.1 at 2023-11-10 00:43:18 +0300
+Processing by MicropostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering microposts/index.html.erb within layouts/application
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts"[0m
+  ↳ app/views/microposts/index.html.erb:6
+  Rendered microposts/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 938)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 2875)
+Completed 200 OK in 14ms (Views: 10.5ms | ActiveRecord: 0.1ms | Allocations: 3820)
+
+
+Started GET "/microposts/new" for 127.0.0.1 at 2023-11-10 00:43:25 +0300
+Processing by MicropostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/_form.html.erb (Duration: 9.8ms | Allocations: 2204)
+  Rendered microposts/new.html.erb within layouts/application (Duration: 11.1ms | Allocations: 2493)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 4416)
+Completed 200 OK in 44ms (Views: 16.5ms | ActiveRecord: 0.4ms | Allocations: 9094)
+
+
+Started POST "/microposts" for 127.0.0.1 at 2023-11-10 00:43:44 +0300
+Processing by MicropostsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "micropost"=>{"content"=>"First micropost!", "user_id"=>"1"}, "commit"=>"Create Micropost"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/microposts_controller.rb:27:in `block in create'
+  [1m[36mMicropost Create (1.3ms)[0m  [1m[32mINSERT INTO "microposts" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["content", "First micropost!"], ["user_id", 1], ["created_at", "2023-11-09 21:43:44.402477"], ["updated_at", "2023-11-09 21:43:44.402477"]]
+  ↳ app/controllers/microposts_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/microposts_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/microposts/1
+Completed 302 Found in 7ms (ActiveRecord: 1.7ms | Allocations: 3362)
+
+
+Started GET "/microposts/1" for 127.0.0.1 at 2023-11-10 00:43:44 +0300
+Processing by MicropostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:63:in `set_micropost'
+  Rendering layout layouts/application.html.erb
+  Rendering microposts/show.html.erb within layouts/application
+  Rendered microposts/_micropost.html.erb (Duration: 0.8ms | Allocations: 167)
+  Rendered microposts/show.html.erb within layouts/application (Duration: 3.6ms | Allocations: 950)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 2868)
+Completed 200 OK in 9ms (Views: 6.3ms | ActiveRecord: 0.1ms | Allocations: 5340)
+
+
+Started GET "/microposts" for 127.0.0.1 at 2023-11-10 00:44:02 +0300
+Processing by MicropostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering microposts/index.html.erb within layouts/application
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts"[0m
+  ↳ app/views/microposts/index.html.erb:6
+  Rendered microposts/_micropost.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered microposts/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 721)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 2644)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.1ms | Allocations: 2902)
+
+
+Started GET "/microposts/new" for 127.0.0.1 at 2023-11-10 00:44:04 +0300
+Processing by MicropostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/_form.html.erb (Duration: 1.3ms | Allocations: 735)
+  Rendered microposts/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 815)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 2738)
+Completed 200 OK in 12ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 3006)
+
+
+Started POST "/microposts" for 127.0.0.1 at 2023-11-10 00:44:12 +0300
+Processing by MicropostsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "micropost"=>{"content"=>"Second micropost!", "user_id"=>"1"}, "commit"=>"Create Micropost"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/microposts_controller.rb:27:in `block in create'
+  [1m[36mMicropost Create (1.0ms)[0m  [1m[32mINSERT INTO "microposts" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["content", "Second micropost!"], ["user_id", 1], ["created_at", "2023-11-09 21:44:12.586182"], ["updated_at", "2023-11-09 21:44:12.586182"]]
+  ↳ app/controllers/microposts_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/microposts_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/microposts/2
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms | Allocations: 1904)
+
+
+Started GET "/microposts/2" for 127.0.0.1 at 2023-11-10 00:44:12 +0300
+Processing by MicropostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/microposts_controller.rb:63:in `set_micropost'
+  Rendering layout layouts/application.html.erb
+  Rendering microposts/show.html.erb within layouts/application
+  Rendered microposts/_micropost.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered microposts/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 474)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 2392)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.1ms | Allocations: 2992)
+
+
+Started GET "/microposts" for 127.0.0.1 at 2023-11-10 00:44:13 +0300
+Processing by MicropostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering microposts/index.html.erb within layouts/application
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts"[0m
+  ↳ app/views/microposts/index.html.erb:6
+  Rendered microposts/_micropost.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered microposts/_micropost.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered microposts/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 862)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 2785)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.1ms | Allocations: 3043)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-10 00:47:52 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 1.9ms | Allocations: 219)
+  Rendered users/index.html.erb within layouts/application (Duration: 45.0ms | Allocations: 11868)
+  Rendered layout layouts/application.html.erb (Duration: 163.5ms | Allocations: 44431)
+Completed 200 OK in 188ms (Views: 169.7ms | ActiveRecord: 0.5ms | Allocations: 54333)
+
+
+Started GET "/microposts" for 127.0.0.1 at 2023-11-10 00:47:58 +0300
+Processing by MicropostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering microposts/index.html.erb within layouts/application
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts"[0m
+  ↳ app/views/microposts/index.html.erb:6
+  Rendered microposts/_micropost.html.erb (Duration: 0.6ms | Allocations: 179)
+  Rendered microposts/_micropost.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered microposts/index.html.erb within layouts/application (Duration: 40.1ms | Allocations: 5759)
+  Rendered layout layouts/application.html.erb (Duration: 45.1ms | Allocations: 7697)
+Completed 200 OK in 51ms (Views: 33.9ms | ActiveRecord: 12.1ms | Allocations: 8739)
+
+
+Started GET "/microposts/new" for 127.0.0.1 at 2023-11-10 00:48:00 +0300
+Processing by MicropostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/_form.html.erb (Duration: 4.4ms | Allocations: 2030)
+  Rendered microposts/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2319)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 4241)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms | Allocations: 4602)
+
+
+Started POST "/microposts" for 127.0.0.1 at 2023-11-10 00:48:07 +0300
+Processing by MicropostsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "micropost"=>{"content"=>"\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"\r\n\r\n\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"\r\n\r\n\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"\r\n\r\n\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"\r\n\r\n\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"\r\n\r\n", "user_id"=>"1"}, "commit"=>"Create Micropost"}
+  Rendering layout layouts/application.html.erb
+  Rendering microposts/new.html.erb within layouts/application
+  Rendered microposts/_form.html.erb (Duration: 2.0ms | Allocations: 1405)
+  Rendered microposts/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1485)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 3403)
+Completed 422 Unprocessable Entity in 8ms (Views: 5.7ms | ActiveRecord: 0.0ms | Allocations: 4838)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mMicropost Load (0.3ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? /* loading for pp */ LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
