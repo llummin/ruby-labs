@@ -5,7 +5,7 @@
       <configuration>
         <RAILS_FACET_CONFIG_ID NAME="RAILS_FACET_SUPPORT_REMOVED" VALUE="false" />
         <RAILS_FACET_CONFIG_ID NAME="RAILS_TESTS_SOURCES_PATCHED" VALUE="true" />
-        <RAILS_FACET_CONFIG_ID NAME="RAILS_FACET_APPLICATION_ROOT" VALUE="$MODULE_DIR$/../../hello_app" />
+        <RAILS_FACET_CONFIG_ID NAME="RAILS_FACET_APPLICATION_ROOT" VALUE="$MODULE_DIR$/../../toy_app" />
       </configuration>
     </facet>
   </component>
@@ -13,18 +13,18 @@
     <shared />
   </component>
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$/../../hello_app">
-      <sourceFolder url="file://$MODULE_DIR$/../../hello_app/features" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../hello_app/spec" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../hello_app/test" isTestSource="true" />
-      <excludeFolder url="file://$MODULE_DIR$/../../hello_app/.bundle" />
-      <excludeFolder url="file://$MODULE_DIR$/../../hello_app/components" />
-      <excludeFolder url="file://$MODULE_DIR$/../../hello_app/log" />
-      <excludeFolder url="file://$MODULE_DIR$/../../hello_app/public/packs" />
-      <excludeFolder url="file://$MODULE_DIR$/../../hello_app/public/system" />
-      <excludeFolder url="file://$MODULE_DIR$/../../hello_app/tmp" />
-      <excludeFolder url="file://$MODULE_DIR$/../../hello_app/vendor/bundle" />
-      <excludeFolder url="file://$MODULE_DIR$/../../hello_app/vendor/cache" />
+    <content url="file://$MODULE_DIR$/../../toy_app">
+      <sourceFolder url="file://$MODULE_DIR$/../../toy_app/features" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../toy_app/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../toy_app/test" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/../../toy_app/.bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../toy_app/components" />
+      <excludeFolder url="file://$MODULE_DIR$/../../toy_app/log" />
+      <excludeFolder url="file://$MODULE_DIR$/../../toy_app/public/packs" />
+      <excludeFolder url="file://$MODULE_DIR$/../../toy_app/public/system" />
+      <excludeFolder url="file://$MODULE_DIR$/../../toy_app/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/../../toy_app/vendor/bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../toy_app/vendor/cache" />
     </content>
     <orderEntry type="jdk" jdkName="rbenv: 3.2.0" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -112,7 +112,7 @@
   </component>
   <component name="RModuleSettingsStorage">
     <LOAD_PATH number="0" />
-    <I18N_FOLDERS number="1" string0="$MODULE_DIR$/../../hello_app/config/locales" />
+    <I18N_FOLDERS number="1" string0="$MODULE_DIR$/../../toy_app/config/locales" />
   </component>
   <component name="RailsGeneratorsCache">
     <option name="generators">

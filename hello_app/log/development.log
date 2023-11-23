@@ -199,3 +199,11 @@ Processing by ApplicationController#goodbye as HTML
 Completed 200 OK in 6ms (Views: 3.6ms | ActiveRecord: 0.0ms | Allocations: 2230)
 
 
+Started GET "/" for 127.0.0.1 at 2023-11-10 11:40:10 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ApplicationController#goodbye as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 4)
+Completed 200 OK in 12ms (Views: 6.6ms | ActiveRecord: 0.0ms | Allocations: 2230)
+
+
