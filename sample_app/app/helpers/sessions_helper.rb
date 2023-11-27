@@ -30,12 +30,6 @@ module SessionsHelper
     !current_user.nil?
   end
 
-  # Осуществляет выход текущего пользователя.
-  def log_out
-    session.delete(:user_id)
-    @current_user = nil
-  end
-
   # Забывает постоянную сессии.
   def forget(user)
     user.forget
